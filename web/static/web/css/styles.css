@@ -1,0 +1,44 @@
+/* DEBUG temporal: si NO ves esta barra arriba, tu CSS no está cargando */
+body::before {
+  content: "styles.css cargado";
+  display: block;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 12px;
+  background: #ffe08a;
+  color: #333;
+}
+
+/* Por defecto (móvil): 1:1 */
+img.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* >=768px: 4:3 */
+@media (min-width: 768px) {
+  img.card-img-top {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* >=1200px: 16:9 */
+@media (min-width: 1200px) {
+  img.card-img-top {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+
+/* Animación suave para hover */
+.card-img-top {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Zoom suave al pasar el mouse */
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}

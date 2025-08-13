@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "web",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -72,7 +73,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "onlyflans.wsgi.application"
 
+# config login
 
+LOGIN_URL = "login/"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDICREC_URL = "home"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
@@ -119,6 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
