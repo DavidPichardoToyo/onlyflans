@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import Registro, Login, Logout
+from django.contrib.auth import views as auth_views
+from .views import Registro, LoginView, LogoutView
 
 urlpatterns = [
-   path("login/", Login.as_view(), name="login" ),
-   path("register/", Registro.as_view(), name="register"),
-   path("logout/", Logout.as_view(), name="logout")
+    path("registro/", Registro.as_view(), name="registro"),
+   path("login/",  auth_views.LoginView.as_view(template_name="users/login.html"), name="login"),
+    path("logout/", LogoutView.as_view(), name="logout"),
 ]

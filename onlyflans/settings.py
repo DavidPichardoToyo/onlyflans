@@ -77,7 +77,7 @@ WSGI_APPLICATION = "onlyflans.wsgi.application"
 
 LOGIN_URL = "login/"
 LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDICREC_URL = "home"
+LOGOUT_REDICREC_URL = "login"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
@@ -125,9 +125,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"

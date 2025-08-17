@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import CreateView
 from .forms import FormularioRegistro
@@ -22,3 +22,17 @@ class Login(LoginView):
 class Logout(LogoutView):
     next_page = reverse_lazy("home")
     http_method_names = ["get", "post"]
+
+
+def registro_view(request):
+    if request.method == "POST":
+        form = FormularioRegistro(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")  # redirige al login después de registrar
+    else:
+        form = FormularioRegistro()
+    
+    return render(request, "web/registro.html", {"form": form})
+
+    

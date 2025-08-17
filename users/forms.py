@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 
 
 class FormularioRegistro(UserCreationForm):
-    class meta:
+    email = forms.EmailField(required=True)
+
+    class Meta:   # <- con M mayúscula
         model = User
-        field = ('username', 'password 1', 'password 2')
+        fields = ("username", "email", "password1", "password2")
+
+

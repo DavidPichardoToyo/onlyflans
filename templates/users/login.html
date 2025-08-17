@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Login</title></head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ingresar</button>
-
-
-
+  <h1>Iniciar sesión</h1>
+  <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Ingresar</button>
     </form>
+  {% if form.errors %}<p style="color:red">Credenciales inválidas</p>{% endif %}
 </body>
 </html>
